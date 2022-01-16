@@ -46,6 +46,8 @@ jobs:
       - name: Get version
         id: get-version-raw
         uses: thecodemonkey/action-get-gradle-version@master
+        with:
+          file: ./build.gradle.kts
       - name: Format version string
         id: get-version
         uses: mad9000/actions-find-and-replace-string@2
