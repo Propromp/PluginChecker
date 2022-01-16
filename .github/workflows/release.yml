@@ -34,7 +34,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2.3.0
         with:
-          distribution: jdk
+          distribution: 'temurin'
           java-version: ${{ needs.constants.outputs.java-version }}
       - name: Configure Git User Details
         run: git config --global user.email "actions@github.com" && git config --global user.name "Github Actions"
