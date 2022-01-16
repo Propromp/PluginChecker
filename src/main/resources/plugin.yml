@@ -1,0 +1,4 @@
+name: PluginChecker
+load: STARTUP
+version: 1.0
+main: net.propromp.pluginchecker.PluginChecker
