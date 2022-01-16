@@ -14,9 +14,10 @@ import java.io.PrintStream
 class EventListener(val plugin: PluginChecker): Listener {
     @EventHandler
     fun onEnable(e: ServerLoadEvent) {
-        Bukkit.getPluginManager().plugins.forEach {
-            val str = plugin.plugins[it.name] ?: return@forEach
-            PrintStream(FileOutputStream(FileDescriptor.out)).println(str.replace("%success%",it.isEnabled.toString()))
+        plugin.plugins.forEach {(pluginName,message) ->
+            val plugin = Bukkit.getPluginManager().getPlugin(pluginName)
+            val success = plugin?.isEnabled ?: false
+            PrintStream(FileOutputStream(FileDescriptor.out)).println(message.replace("%success%",success.toString()))
         }
         Bukkit.getServer().shutdown()
     }
